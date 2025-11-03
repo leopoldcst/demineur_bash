@@ -70,4 +70,15 @@ Tu peux aussi **surveiller les logs** pour voir la partie évoluer en direct :
 ```bash
 tail -f victoire.log        # Affiche les ouvertures sûres
 tail -f surveillance.log    # Affiche l'ouverture d'une bombe (si déclenchée)
+```
+
+## 📈 Améliorations possibles
+
+- Créer un script `afficher_grille` pour afficher visuellement la grille en 5x5 dans le terminal.
+    - Option : renommer temporairement tous les fichiers contenant simplement `0` en `0` (sans extension), pour faciliter un affichage lisible (via `ls`, `column`, etc.).
+- Ajouter un **timer** pour complexifier le jeu.
+- Générer des grilles plus grandes (10x10, 15x15…) avec difficulté croissante.
+
+
 ---
+
