@@ -4,6 +4,16 @@
 
 ---
 
+## 📁 Structure du dossier
+
+- `carte/` : la grille générée à chaque partie
+- `cree_bombe.sh` : génère la grille et place les bombes
+- `bombes_voisines.sh` : calcule les bombes voisines
+- `surveillance_bombe.sh` : détecte si une bombe est ouverte
+- `surveillance_victoire.sh` : détecte 5 ouvertures saines
+- `lancer_jeu.sh` : script principal pour démarrer une partie
+
+
 ## 📏 But du jeu
 
 Ouvre 5 cases (commande cat) sans bombe pour remporter la partie !
@@ -14,17 +24,23 @@ Mais attention ⚠️ : dans une grille de 25 cases, plusieurs bombes sont dissi
 ## ⚙️ Comment installer le jeu ?
 
 1. Clone le repo github
-2. installer la bibliothèque inotify-tools (librairie qui permet une surveillance du système de fichiers)
-> sudo apt install inotify-tools
+2. Installe la bibliothèque `inotify-tools` (utile pour surveiller les fichiers ouverts en temps réel)
+```bash
+sudo apt install inotify-tools
+```
 3. Aller dans le dossier demineur_bash
 4. Donner les droits d’exécution
-> chmod +x *.sh
+```bash
+chmod +x *.sh
+```
 5. Tu es prêt à jouer 🎮
 
 ## Lancer une partie 
 
 Dans le fichier demineur_bash, exécute la commande suivante : 
-> ./lancer_jeu.sh
+```bash
+./lancer_jeu.sh
+```
 
 Cela lance automatiquement deux scripts de surveillance en arrière-plan :
 * 💣 surveillance_bombe.sh : déclenche une défaite si tu ouvres une bombe
@@ -43,6 +59,18 @@ Tu joues avec les commandes Unix classiques :
 | Vérifier si la partie est gagnée | `ls carte/VICTORY` |
 | Relancer une partie | `./lancer_jeu.sh` |
 | Arrêter la surveillance | `pkill -f inotifywait` |
+
+## 🎯 Fin de partie
+
+- Si tu ouvres **5 cases sûres** → le fichier `carte/VICTORY` est créé ✅  
+- Si tu ouvres **une bombe** → le fichier `carte/TIMEUP` est créé ❌
+
+Tu peux aussi **surveiller les logs** pour voir la partie évoluer en direct :
+
+```bash
+tail -f victoire.log        # Affiche les ouvertures sûres
+tail -f surveillance.log    # Affiche l'ouverture d'une bombe (si déclenchée)
+
   
 
 
