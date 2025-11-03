@@ -9,7 +9,7 @@
 - `carte/` : la grille générée à chaque partie
 - `cree_bombe.sh` : génère la grille et place les bombes
 - `bombes_voisines.sh` : calcule les bombes voisines
-- `surveillance_bombe.sh` : détecte si une bombe est ouverte
+- `surveillance.sh` : détecte si une bombe est ouverte
 - `surveillance_victoire.sh` : détecte 5 ouvertures saines
 - `lancer_jeu.sh` : script principal pour démarrer une partie
 
