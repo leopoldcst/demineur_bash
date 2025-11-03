@@ -16,7 +16,7 @@
 
 ## 📏 But du jeu
 
-Ouvre 5 cases (commande cat) sans bombe pour remporter la partie !
+Ouvrir 5 cases (commande cat) sans bombe pour remporter la partie !
 Mais attention ⚠️ : dans une grille de 25 cases, plusieurs bombes sont dissimulées...
 
 À toi de déduire les cases sûres grâce aux indices d’adjacence : chaque case affiche le nombre de bombes dans ses 8 cases voisines.
