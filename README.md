@@ -70,9 +70,4 @@ Tu peux aussi **surveiller les logs** pour voir la partie évoluer en direct :
 ```bash
 tail -f victoire.log        # Affiche les ouvertures sûres
 tail -f surveillance.log    # Affiche l'ouverture d'une bombe (si déclenchée)
-
-  
-
-
-
 ---
