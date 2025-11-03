@@ -22,33 +22,19 @@ echo "➡️  Génération de la grille et placement des bombes..."
 echo "➡️  Calcul des bombes voisines..."
 ./bombes_voisines.sh >/dev/null
 
-# 3️⃣ Lancement des surveillances
-SURV_LOG="surveillance.log"
-VICTOIRE_LOG="victoire.log"
+# 2️⃣ Lancement des surveillances
 echo "➡️  Lancement des surveillances..."
 
-if [[ "${1:-}" == "--verbose" ]]; then
-  ./surveillance_bombe.sh &
-  PID_BOMBE=$!
-  ./surveillance_victoire.sh &
-  PID_VICTOIRE=$!
-else
-  nohup ./surveillance.sh < /dev/null > "$SURV_LOG" 2>&1 &
-  PID_BOMBE=$!
-  nohup ./surveillance_victoire.sh < /dev/null > "$VICTOIRE_LOG" 2>&1 &
-  PID_VICTOIRE=$!
-fi
+nohup ./surveillance.sh < /dev/null > surveillance.log 2>&1 &
+BOMBE_PID=$!
+
+nohup ./surveillance_victoire.sh < /dev/null > victoire.log 2>&1 &
+VICTOIRE_PID=$!
 
 sleep 0.3
 
-if ps -p "$PID_BOMBE" >/dev/null && ps -p "$PID_VICTOIRE" >/dev/null; then
-  echo "👁️  Surveillance BOMBE lancée (PID: $PID_BOMBE) → $SURV_LOG"
-  echo "👁️  Surveillance VICTOIRE lancée (PID: $PID_VICTOIRE) → $VICTOIRE_LOG"
-else
-  echo "⚠️  Échec du lancement de l'une des surveillances !"
-  exit 1
-fi
-
+echo "👁️  Surveillance BOMBE lancée (PID: $BOMBE_PID) → surveillance.log"
+echo "👁️  Surveillance VICTOIRE lancée (PID: $VICTOIRE_PID) → victoire.log"
 
 # 3️⃣ Instructions
 echo ""
@@ -60,6 +46,6 @@ echo ""
 echo "💣 Une bombe → création de carte/TIMEUP"
 echo "🎯 5 cases sûres ouvertes → création de carte/VICTORY"
 echo "🛑 Arrêt manuel possible avec :"
-echo "    kill $PID_BOMBE $PID_VICTOIRE"
+echo "    kill $BOMBE_PID $VICTOIRE_PID"
 echo ""
 
