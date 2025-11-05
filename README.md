@@ -43,7 +43,7 @@ Dans le fichier demineur_bash, exécute la commande suivante :
 ```
 
 Cela lance automatiquement deux scripts de surveillance en arrière-plan :
-* 💣 surveillance_bombe.sh : déclenche une défaite si tu ouvres une bombe
+* 💣 surveillance.sh : déclenche une défaite si tu ouvres une bombe
 * 🏆 surveillance_victoire.sh : déclenche une victoire si tu ouvres 5 cases sûres
 
 
