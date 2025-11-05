@@ -31,7 +31,7 @@ sudo apt install inotify-tools
 3. Aller dans le dossier demineur_bash
 4. Donner les droits d’exécution
 ```bash
-chmod +x *.sh
+chmod +x *
 ```
 5. Tu es prêt à jouer 🎮
 
