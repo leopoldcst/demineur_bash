@@ -25,10 +25,10 @@ echo "➡️  Calcul des bombes voisines..."
 # 2️⃣ Lancement des surveillances
 echo "➡️  Lancement des surveillances..."
 
-nohup ./surveillance.sh < /dev/null > surveillance.log 2>&1 &
+nohup ./surveillance.sh < /dev/null 2>&1 &
 BOMBE_PID=$!
 
-nohup ./surveillance_victoire.sh < /dev/null > victoire.log 2>&1 &
+nohup ./surveillance_victoire.sh < /dev/null 2>&1 &
 VICTOIRE_PID=$!
 
 sleep 0.3
