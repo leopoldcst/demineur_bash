@@ -65,12 +65,6 @@ Tu joues avec les commandes Unix classiques :
 - Si tu ouvres **5 cases sûres** → le fichier `carte/VICTORY` est créé ✅  
 - Si tu ouvres **une bombe** → le fichier `carte/TIMEUP` est créé ❌
 
-Tu peux aussi **surveiller les logs** pour voir la partie évoluer en direct :
-
-```bash
-tail -f victoire.log        # Affiche les ouvertures sûres
-tail -f surveillance.log    # Affiche l'ouverture d'une bombe (si déclenchée)
-```
 
 ## 📈 Améliorations possibles
 
