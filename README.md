@@ -66,6 +66,18 @@ Tu joues avec les commandes Unix classiques :
 - Si tu ouvres **une bombe** → le fichier `carte/TIMEUP` est créé ❌
 
 
+## Pour viabiliser la mécanique du jeu
+
+Actuellement, la surveillance du jeu repose sur la bibliothèque inotifywait, qui détecte l’ouverture de fichiers.
+Or, cette méthode est très lente et provoque souvent des crashs !
+Il faudrait donc passer d’un système basé sur “fichiers ouverts = actions” à un modèle de données cohérent.
+
+Pour cela, on pourrait envisager de :
+
+1. Créer une matrice d’adjacence où chaque cellule stocke l’état (ouvert/fermé) de la case.
+2. Mettre à jour en temps réel la matrice (à chaque coup).
+3. Repenser la surveillance : supprimer la dépendance à inotifywait au profit d’une boucle de jeu interne gérant les ouvertures ainsi que les conditions de victoire et de défaite.
+
 ## 📈 Améliorations possibles
 
 - Créer un script `afficher_grille` pour afficher visuellement la grille en 5x5 dans le terminal.
