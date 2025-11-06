@@ -66,7 +66,7 @@ Tu joues avec les commandes Unix classiques :
 - Si tu ouvres **une bombe** → le fichier `carte/TIMEUP` est créé ❌
 
 
-## Pour viabiliser la mécanique du jeu
+## 🧠 Pour viabiliser la mécanique du jeu
 
 Actuellement, la surveillance du jeu repose sur la bibliothèque inotifywait, qui détecte l’ouverture de fichiers.
 Or, cette méthode est très lente et provoque souvent des crashs !
